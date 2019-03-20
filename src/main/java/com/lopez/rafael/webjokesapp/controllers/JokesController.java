@@ -12,13 +12,12 @@ public class JokesController {
     JokeService jokeService;
 
     @Autowired
-    public JokesController(JokeService jokeService)
-    {
+    public JokesController(JokeService jokeService) {
         this.jokeService = jokeService;
     }
 
     @RequestMapping(path = {"/", ""})
-    public String handleRequest(Model model) {
+    public String showJoke(Model model) {
         model.addAttribute("joke", jokeService.getJoke());
         return "chucknorris";
     }
